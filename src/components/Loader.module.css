@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+.first{
+    width: 120px;
+    height: 120px;
+    border: 1px black solid;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+    animation: first 6s infinite;
+}
+
+.second{
+    width: 120px;
+    height: 120px;
+    border: 1px black solid;
+    border-radius: 30% 70% 15% 85% / 33% 21% 79% 67%  ;
+    animation: first 6s infinite;
+
+}
+
+.third{
+    width: 120px;
+    height: 120px;
+    border: 1px black solid;
+    border-radius: 61% 39% 85% 15% / 70% 21% 79% 30%  ;
+    animation: third 6s infinite;
+
+}
+@keyframes first {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes third {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-360deg);}
+}
