@@ -45,7 +45,7 @@ const Home = () => {
                 <Loader />
             }
             {
-                searchedCryptos.length > 0  ?  " ": <p className={styles.feiled}>Nothing Found !..</p> 
+                searchedCryptos.length > 0 ? " " : <p className={styles.feiled}>Nothing Found !..</p>
             }
         </div>
     );
