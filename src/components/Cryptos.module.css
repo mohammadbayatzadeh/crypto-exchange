@@ -1,8 +1,8 @@
 .container {
-    width: 700px;
+    width: 900px;
     height: 90px;
     display: grid;
-    grid-template: 1fr/60px repeat(4, 1fr);
+    grid-template: 1fr/60px repeat(5, 1fr);
     text-align: left;
     /* justify-items: center; */
     align-items: center;
