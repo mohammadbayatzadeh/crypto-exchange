@@ -39,13 +39,8 @@ const Home = () => {
           {searchedCryptos.map((crypto) => (
             <Cryptos
               key={crypto.id}
-              name={crypto.name}
-              symbol={crypto.symbol}
-              image={crypto.image}
-              price={crypto.current_price}
-              marketCap={crypto.market_cap}
               change={crypto.price_change_percentage_24h}
-              sparklines={crypto.sparkline_in_7d.price}
+              data={crypto}
             />
           ))}
         </div>

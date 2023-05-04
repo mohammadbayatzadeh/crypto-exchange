@@ -1,16 +1,41 @@
 .container {
+    box-sizing: border-box;
     width: 900px;
     height: 90px;
     display: grid;
-    grid-template: 1fr/60px repeat(5, 1fr);
+    grid-template: 1fr / 70px repeat(5, 1fr);
     text-align: left;
     /* justify-items: center; */
     align-items: center;
     padding: 15px;
     font-size: 12px;
     color: #212529;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid #146C94;
+    margin: 10px;
 }
+.detailsContainer {
+    box-sizing: border-box;
+    width: 900px;
+    /* height: 90px; */
+    display: flex;
+    text-align: left;
+    justify-items: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #212529;
+    border-bottom: 1px solid #146C94;
+    margin: 10px;
+
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px;
+    }
 
 
 
@@ -19,19 +44,19 @@
     height: 60px;
 }
 
-.name {
-    font-weight: bolder;
-    padding: 15px;
+.detailsImage {
+    width: 160px;
+    height: 160px;
 }
 
-.price {
+.text {
     font-weight: bolder;
-    padding: 20px;
 }
+
+
 
 .redchange, .greenchange {
     font-weight: bold;
-    padding: 20px;
 }
 
 .redchange {
@@ -44,5 +69,4 @@
 
 .marketCap {
     font-weight: 300;
-    padding: 20px;
 }

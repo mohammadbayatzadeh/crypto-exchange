@@ -5,7 +5,7 @@
 }
 
 .container {
-    background-color: rgba(171, 195, 196, 0.507);
+    background-color:#146C94;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     font-size: 1.7rem;
     padding: 10px 20px;
     margin: 20px;
-    color: black;
+    color: #146C94;
     border-radius: 10px 20px 5px 30px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.62);
 }
