@@ -36,6 +36,13 @@ const Home = () => {
       />
       {cryptos.length ? (
         <div className={styles.coinContainer}>
+          <div className={styles.titles}>
+            <span className={`${styles.text} ${styles.name}`}>Coin name</span>
+            <span className={styles.text}>Current price</span>
+            <span className={styles.text}>Change Percent</span>
+            <span className={styles.text}>Market Cap</span>
+            <span className={`${styles.text} ${styles.mainSparkline}`}>Sparklines</span>
+          </div>
           {searchedCryptos.map((crypto) => (
             <Cryptos
               key={crypto.id}

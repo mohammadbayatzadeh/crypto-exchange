@@ -3,6 +3,9 @@ import React from "react";
 //styles
 import styles from "./Cryptos.module.css";
 
+//icons
+import Dropdown_Icon from "../assets/Icons/images.png";
+
 //sparkline
 const sparkline = require("node-sparkline");
 
@@ -32,8 +35,8 @@ const Cryptos = ({ change, data }) => {
   });
 
   return (
-    <div className={styles.body}>
-      <div className={styles.container} onClick={handleOpen}>
+    <div className={open ? `${styles.body} ${styles.active}` : styles.body}>
+      <div className={styles.container}>
         <img className={styles.image} src={data.image} alt={data.name} />
         <span className={styles.text}>
           {data.name}({data.symbol})
@@ -47,9 +50,23 @@ const Cryptos = ({ change, data }) => {
         <span className={styles.text}>
           $ {data.market_cap.toLocaleString()}
         </span>
-        {svg && <div dangerouslySetInnerHTML={{ __html: svg }} />}
+        {svg && (
+          <div
+            className={styles.mainSparkline}
+            dangerouslySetInnerHTML={{ __html: svg }}
+          />
+        )}
+        <img
+          src={Dropdown_Icon}
+          onClick={handleOpen}
+          className={
+            open
+              ? `${styles.dropDownIcon} ${styles.Active}`
+              : styles.dropDownIcon
+          }
+        />
       </div>
-      {open ? (
+      {
         <div className={styles.details}>
           <div className={styles.detailsContainer}>
             <img
@@ -77,7 +94,7 @@ const Cryptos = ({ change, data }) => {
                 Change: % {change}
               </span>
               <span>High 24H: ${data.high_24h}</span>
-              <span> 24H: ${data.low_24h}</span>
+              <span>Low 24H: ${data.low_24h}</span>
             </div>
             <div className={styles.column}>
               <span className={styles.marketCap}>
@@ -87,10 +104,15 @@ const Cryptos = ({ change, data }) => {
                 marketCap rank: {data.market_cap_rank.toLocaleString()}
               </span>
             </div>
-            {svg && <div dangerouslySetInnerHTML={{ __html: deatilSvg }} />}
+            {svg && (
+              <div
+                className={styles.sparkline}
+                dangerouslySetInnerHTML={{ __html: deatilSvg }}
+              />
+            )}
           </div>
         </div>
-      ) : null}
+      }
     </div>
   );
 };
