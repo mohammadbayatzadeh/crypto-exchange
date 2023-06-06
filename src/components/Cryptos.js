@@ -57,6 +57,7 @@ const Cryptos = ({ change, data }) => {
           />
         )}
         <img
+        alt={data.name}
           src={Dropdown_Icon}
           onClick={handleOpen}
           className={
