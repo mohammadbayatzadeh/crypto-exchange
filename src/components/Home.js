@@ -13,7 +13,6 @@ const Home = () => {
   useEffect(() => {
     const fetchAPI = async () => {
       const data = await Getdata();
-      console.log(data);
       setCryptos(data);
     };
 
