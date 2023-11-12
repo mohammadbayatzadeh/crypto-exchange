@@ -8,6 +8,7 @@ import Loader from "../modules/Loader";
 //styles
 import styles from "./Home.module.css";
 import SearchBox from "../modules/SearchBox";
+import Headers from "../elements/Headers";
 
 const Home = () => {
   const [cryptos, setCryptos] = useState([]);
@@ -31,15 +32,7 @@ const Home = () => {
       <SearchBox search={search} setSearch={setSearch} />
       {cryptos.length > 0 ? (
         <div className={styles.coinContainer}>
-          <div className={styles.titles}>
-            <span className={`${styles.text} ${styles.name}`}>Coin name</span>
-            <span className={styles.text}>Current price</span>
-            <span className={styles.text}>Change Percent</span>
-            <span className={styles.text}>Market Cap</span>
-            <span className={`${styles.text} ${styles.mainSparkline}`}>
-              Sparklines
-            </span>
-          </div>
+          <Headers />
           {searchedCryptos.map((crypto) => (
             <Cryptos
               key={crypto.id}
