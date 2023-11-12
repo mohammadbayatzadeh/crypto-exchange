@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./Cryptos.module.css";
 
 //icons
-import Dropdown_Icon from "../assets/Icons/images.png";
+import Dropdown_Icon from "../../assets/Icons/images.png";
 
 //sparkline
 const sparkline = require("node-sparkline");

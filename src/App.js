@@ -1,14 +1,8 @@
-import './App.css';
-
-//comps
-import Home from "./components/Home.js"
+//Templates
+import Home from "./components/Templates/Home.js";
 
 function App() {
-  return (
-    <div className="App">
-      <Home />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;

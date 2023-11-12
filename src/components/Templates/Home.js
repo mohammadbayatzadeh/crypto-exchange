@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Getdata } from "../server/api";
+import { Getdata } from "../../server/api";
 
 //comps
-import Cryptos from "./Cryptos";
-import Loader from "./Loader";
+import Cryptos from "../modules/Cryptos";
+import Loader from "../modules/Loader";
 
 //styles
 import styles from "./Home.module.css";
@@ -40,7 +40,9 @@ const Home = () => {
             <span className={styles.text}>Current price</span>
             <span className={styles.text}>Change Percent</span>
             <span className={styles.text}>Market Cap</span>
-            <span className={`${styles.text} ${styles.mainSparkline}`}>Sparklines</span>
+            <span className={`${styles.text} ${styles.mainSparkline}`}>
+              Sparklines
+            </span>
           </div>
           {searchedCryptos.map((crypto) => (
             <Cryptos
