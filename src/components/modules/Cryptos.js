@@ -5,6 +5,7 @@ import styles from "./Cryptos.module.css";
 
 //icons
 import Dropdown_Icon from "../../assets/Icons/images.png";
+import CryproText from "../elements/CryproText";
 
 //sparkline
 const sparkline = require("node-sparkline");
@@ -25,6 +26,7 @@ const Cryptos = ({ change, data }) => {
     strokeWidth: 1,
     strokeOpacity: 1,
   });
+
   let deatilSvg = sparkline({
     values,
     width: 290,
@@ -38,18 +40,10 @@ const Cryptos = ({ change, data }) => {
     <div className={open ? `${styles.body} ${styles.active}` : styles.body}>
       <div className={styles.container}>
         <img className={styles.image} src={data.image} alt={data.name} />
-        <span className={styles.text}>
-          {data.name}({data.symbol})
-        </span>
-        <span className={styles.text}>
-          $ {data.current_price.toLocaleString()}
-        </span>
-        <span className={change > 0 ? styles.greenchange : styles.redchange}>
-          % {change}
-        </span>
-        <span className={styles.text}>
-          $ {data.market_cap.toLocaleString()}
-        </span>
+        <CryproText text={`${data.name}(${data.symbol})`} />
+        <CryproText text={`$ ${data.current_price.toLocaleString()}`} />
+        <CryproText text={`$ ${change}`} change={change} />
+        <CryproText text={`$ ${data.market_cap.toLocaleString()}`} />
         {svg && (
           <div
             className={styles.mainSparkline}
@@ -57,7 +51,7 @@ const Cryptos = ({ change, data }) => {
           />
         )}
         <img
-        alt={data.name}
+          alt={data.name}
           src={Dropdown_Icon}
           onClick={handleOpen}
           className={
@@ -67,53 +61,41 @@ const Cryptos = ({ change, data }) => {
           }
         />
       </div>
-      {
-        <div className={styles.details}>
-          <div className={styles.detailsContainer}>
-            <img
-              className={styles.detailsImage}
-              src={data.image}
-              alt={data.name}
-            />
-            <div className={styles.column}>
-              <span className={styles.text}>
-                Name:
-                {data.name}
-              </span>
-              <span className={styles.text}>
-                Symbol:
-                {data.symbol}
-              </span>
-              <span className={styles.text}>
-                price: ${data.current_price.toLocaleString()}
-              </span>
-            </div>
-            <div className={styles.column}>
-              <span
-                className={change > 0 ? styles.greenchange : styles.redchange}
-              >
-                Change: % {change}
-              </span>
-              <span>High 24H: ${data.high_24h}</span>
-              <span>Low 24H: ${data.low_24h}</span>
-            </div>
-            <div className={styles.column}>
-              <span className={styles.marketCap}>
-                marketCap: ${data.market_cap.toLocaleString()}
-              </span>
-              <span className={styles.marketCap}>
-                marketCap rank: {data.market_cap_rank.toLocaleString()}
-              </span>
-            </div>
-            {svg && (
-              <div
-                className={styles.sparkline}
-                dangerouslySetInnerHTML={{ __html: deatilSvg }}
-              />
-            )}
+      <div className={styles.details}>
+        <div className={styles.detailsContainer}>
+          <img
+            className={styles.detailsImage}
+            src={data.image}
+            alt={data.name}
+          />
+          <div className={styles.column}>
+            <CryproText text={`Name:${data.name}`} />
+            <CryproText text={`Symbol:${data.symbol}`} />
+            <CryproText text={`Price:${data.current_price.toLocaleString()}`} />
           </div>
+          <div className={styles.column}>
+            <CryproText text={`Change: % ${change}`} change={change} />
+            <CryproText text={`High 24H:${data.high_24h}`} />
+            <CryproText text={`low 24H:${data.low_24h}`} />
+          </div>
+          <div className={styles.column}>
+            <CryproText
+              text={`marketCap:${data.market_cap.toLocaleString()}`}
+              light={true}
+            />
+            <CryproText
+              text={`marketCap rank:${data.market_cap_rank.toLocaleString()}`}
+              light={true}
+            />
+          </div>
+          {svg && (
+            <div
+              className={styles.sparkline}
+              dangerouslySetInnerHTML={{ __html: deatilSvg }}
+            />
+          )}
         </div>
-      }
+      </div>
     </div>
   );
 };
