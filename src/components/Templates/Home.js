@@ -7,9 +7,12 @@ import Loader from "../modules/Loader";
 
 //styles
 import styles from "./Home.module.css";
+import SearchBox from "../modules/SearchBox";
+
 const Home = () => {
   const [cryptos, setCryptos] = useState([]);
   const [search, setSearch] = useState([]);
+
   useEffect(() => {
     const fetchAPI = async () => {
       const data = await Getdata();
@@ -18,22 +21,15 @@ const Home = () => {
 
     fetchAPI();
   }, []);
-  const searchHandler = (event) => {
-    setSearch(event.target.value.toLowerCase());
-  };
+
   const searchedCryptos = cryptos.filter((crypto) =>
     crypto.name.toLowerCase().includes(search)
   );
+
   return (
     <div className={styles.container}>
-      <input
-        className={styles.input}
-        type="text"
-        placeholder="Search..."
-        value={search}
-        onChange={searchHandler}
-      />
-      {cryptos.length ? (
+      <SearchBox search={search} setSearch={setSearch} />
+      {cryptos.length > 0 ? (
         <div className={styles.coinContainer}>
           <div className={styles.titles}>
             <span className={`${styles.text} ${styles.name}`}>Coin name</span>
@@ -55,11 +51,7 @@ const Home = () => {
       ) : (
         <Loader />
       )}
-      {searchedCryptos.length > 0 ? (
-        " "
-      ) : (
-        <p className={styles.feiled}>Nothing Found !..</p>
-      )}
+      {searchedCryptos.length === 0 ? <p>Nothing Found !..</p> : null}
     </div>
   );
 };
